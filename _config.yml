@@ -18,7 +18,7 @@ github_username: "ab2pentest"
 #########################################################################################
 ######### Nothing below needs to be changed (unless you know what you're doing) #########
 #########################################################################################
-theme: jekyll-theme-hacker
+theme: jekyll-theme-dinky
 
 rss: rss
 
