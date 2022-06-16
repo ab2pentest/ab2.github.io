@@ -2,31 +2,20 @@
 
 ![photo_2021-02-10_22-58-30](https://user-images.githubusercontent.com/84577967/174065612-9a8249f1-005f-4ba3-a752-d4b1ed44df25.jpg)
 
-<font size="8" color="green">MystikoCTF 2021</font>
+## MystikoCTF 2021
 
-<font size="3" color="grey">Date: 21<sup>st</sup> / 22<sup>nd</sup> November 2021</font> 
+Date: 21<sup>st</sup> / 22<sup>nd</sup> November 2021
 
-<font size="3" color="white">Description:</font>
+## Description
 
 > This is my writeup for the recent ctf hosted by Mystiko, the CTF was hosted on TryHackMe and was too much fun, So I would like to thank the team for making this really challenging and also for the great machine.
 ---
 
-<font size="3" color="white">CTF Name: [MystikoCTF2021](https://tryhackme.com/room/mystikoctf2021)</font>
+- THM Link: [MystikoCTF2021](https://tryhackme.com/room/mystikoctf2021)
 
-<font size="3" color="white"> Difficulty: </font><font size="3" color="orange">Medium</font>
+- Difficulty: </font><font size="3" color="orange">Medium</font>
 
-<font size="3" color="white">THM Account: [AB2](https://tryhackme.com/p/AB2)</font>
-
-<font size="3" color="white">Email: ab2pentest@tuta.io</font>
-
-<font size="3" color="white">Document Author: [AB2](https://twitter.com/ab2pentest)</font>
-
-<font size="3" color="white">Final ScoreBoard:</font>
-
-![2021-11-22_16-45-37](https://user-images.githubusercontent.com/84577967/174065660-b99eeefd-e70f-4a7c-a795-f7ef11da0c51.png)
-
-
-I unfortunately didn't have much time for the CTF, but I ended up sharing the third position with `cryptonic007`.
+I unfortunately didn't have much time for the whole CTF, but I ended up sharing the third position with `cryptonic007`.
 
 ---
 
