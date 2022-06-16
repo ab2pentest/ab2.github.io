@@ -1,4 +1,4 @@
-#DamCTF sneaky-script Writeup
+# [DamCTF] sneaky-script Writeup
 
 ![2021-11-06_16-24-36](https://user-images.githubusercontent.com/84577967/140614866-795e6e02-759e-4322-85fe-6517bc0879b6.png)
 
