@@ -9,15 +9,12 @@ Date: 21<sup>st</sup> / 22<sup>nd</sup> November 2021
 ## Description
 
 > This is my writeup for the recent ctf hosted by Mystiko, the CTF was hosted on TryHackMe and was too much fun, So I would like to thank the team for making this really challenging and also for the great machine.
----
 
 - THM Link: [MystikoCTF2021](https://tryhackme.com/room/mystikoctf2021)
 
-- Difficulty: </font><font size="3" color="orange">Medium</font>
+- Difficulty: <font size="3" color="orange">Medium</font>
 
 I unfortunately didn't have much time for the whole CTF, but I ended up sharing the third position with `cryptonic007`.
-
----
 
 # Enumeration
 
