@@ -180,7 +180,7 @@ analytics:
 
 ## => Build
 ##############################
-markdown    : kramdown
+markdown    : Maruku
 highlighter : rouge
 permalink   : date
 
