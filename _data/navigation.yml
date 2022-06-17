@@ -61,6 +61,7 @@ header:
       # @end locale config
     url: https://www.buymeacoffee.com/ab2pentest
     icon: https://cdn.buymeacoffee.com/buttons/bmc-new-btn-logo.svg
+    newtab: true
 
   - titles:
       # @start locale config
@@ -71,4 +72,4 @@ header:
       en-AU   : *EN
       # @end locale config
     url: /rss.xml
-    icon: https://img.icons8.com/color/452/rss.png
+    icon: https://img.icons8.com/fluency/2x/rss.png

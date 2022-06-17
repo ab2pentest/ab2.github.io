@@ -33,6 +33,8 @@
                 <a href="{{ _nav_url }}">
                   {%- if _item.title -%}
                   {{ _item.title }}
+                  {%- elsif _item.newtab -%}
+                  <img src="{{ _item.icon }}" alt="{{ _item.title }}" target="_blank"/>
                   {%- elsif _item.icon -%}
                   <img src="{{ _item.icon }}" alt="{{ _item.title }}"/>
                   {%- else -%}
@@ -45,6 +47,8 @@
                 <a href="{{ _nav_url }}">
                   {%- if _item.title -%}
                   {{ _item.title }}
+                  {%- elsif _item.newtab -%}
+                  <img src="{{ _item.icon }}" alt="{{ _item.title }}" target="_blank"/>
                   {%- elsif _item.icon -%}
                   <img src="{{ _item.icon }}" alt="{{ _item.title }}"/>
                   {%- else -%}
