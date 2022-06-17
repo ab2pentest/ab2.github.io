@@ -7,7 +7,7 @@ tags: web thm privesc
 
 Date: 21<sup>st</sup> / 22<sup>nd</sup> November 2021
 
-# Description
+## Description
 
 > This is my writeup for the recent ctf hosted by Mystiko, the CTF was hosted on TryHackMe and was too much fun, So I would like to thank the team for making this really challenging and also for the great machine.
 
@@ -17,7 +17,7 @@ Date: 21<sup>st</sup> / 22<sup>nd</sup> November 2021
 
 I unfortunately didn't have much time for the whole CTF, but I ended up sharing the third position with `cryptonic007`.
 
-# Enumeration
+## Enumeration
 
 The CTF had 3 different webapps
 
@@ -54,7 +54,7 @@ And that was a hidden HTML headings that has some output from the picture I uplo
 
 So I thought probably doing exiftool job, so I had to look for a recent vulnerability of exiftool `CVE-2021-22204` that I had never the chance to try it ... 
 
-# Foothold
+## Foothold
 
 I tried multiple public cve's and I eventually ended up with a working one
 
@@ -87,7 +87,7 @@ Getting the first flag `local.txt` was pretty easy, the flag was in the home dir
 ![2021-11-21_13-29-07](https://user-images.githubusercontent.com/84577967/174065895-f63a0342-78b3-413c-afe6-74034df064a5.png)
 
 
-# Privilege Escalation
+## Privilege Escalation
 
 The first thing I ever do is typing `sudo -l`, to check if there is any commands I can execute with sudo.
 
@@ -154,10 +154,3 @@ pop graphic-context
 And yes ! I was root and able to read the second flag `proof.txt`
 
 ![2021-11-22_17-34-28](https://user-images.githubusercontent.com/84577967/174066152-8befadde-2aea-4454-b8ca-e03a52150dc2.png)
-
-
----
-Hope you enjoyed my writeup like I enjoyed playing the CTF.
-
-Regards,
-AB2.
