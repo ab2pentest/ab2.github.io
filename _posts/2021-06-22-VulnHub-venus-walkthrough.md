@@ -1,6 +1,6 @@
 ---
 title: Vulnhub - Venus - Walkthrough
-tags: web, vulnhub, privesc
+tags: web vulnhub privesc
 ---
 
 ## The Planets: Venus (user flag)
