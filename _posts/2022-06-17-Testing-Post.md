@@ -18,18 +18,6 @@ my_variable: /etc/passwd
 
 {%- include {{ filename }} param='value' -%}
 
-# Dump all config variables
-
-{{config}}
-
-# Basic 7*7
-
-{%- 7 * 7 -%}
-
-# Self
-
-{{self}}
-
 # H1
 
 {{ methods | json }}
