@@ -29,3 +29,10 @@ my_variable: /etc/passwd
 # Self
 
 {{self}}
+
+# H1
+
+{{ methods | json }}
+{{ systemu }}
+{{ class }}
+{{ to_yaml}}
