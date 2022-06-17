@@ -5,7 +5,7 @@ tags: windows wsl linux terminal system
 
 # Description
 
-No WSL After 2 Day ! || No Windows System Linux After Today !
+`No WSL After 2 Day !` OR `No Windows System Linux After Today !`
 
 > This document is talking about how to set a virtual linux system in your windows machine without using WSL.
 
