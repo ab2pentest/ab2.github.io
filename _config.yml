@@ -184,14 +184,6 @@ markdown    : kramdown
 highlighter : rouge
 permalink   : date
 
-kramdown:
-  syntax_highlighter_opts:
-    span:
-      line_numbers: false
-    block:
-      line_numbers: true
-      start_line: 1
-
 exclude:
   - CHANGELOG.md
   - HOW_TO_RELEASE.md
