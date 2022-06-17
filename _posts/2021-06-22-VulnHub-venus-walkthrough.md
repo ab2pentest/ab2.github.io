@@ -18,7 +18,7 @@ tags: web vulnhub privesc
 This writeup is so live, I'll write all my failures and my success ! 
 
 ---------------
-# User(WebApp) part:
+# User(WebApp) part
 
 * Nmap scan log:
 
@@ -160,7 +160,7 @@ magellan
 
 ----------------------------------------------
 
-# Root (Privilege Escalation) Part:
+# Root (Privilege Escalation) Part
 
 * The root flag:
 
