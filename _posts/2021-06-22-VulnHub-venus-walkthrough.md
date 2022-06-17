@@ -1,5 +1,5 @@
 ---
-title: [Vulnhub] - Venus - Walkthrough
+title: Vulnhub - Venus - Walkthrough
 tags: web, vulnhub, privesc
 ---
 

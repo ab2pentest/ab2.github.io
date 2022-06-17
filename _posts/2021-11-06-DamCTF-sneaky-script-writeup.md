@@ -1,5 +1,5 @@
 ---
-title: [DamCTF] - sneaky-script - Writeup
+title: DamCTF - sneaky-script - Writeup
 tags: malware
 ---
 

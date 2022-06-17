@@ -1,5 +1,5 @@
 ---
-title: [Pwn2Win] - CmonSeemyVulns - Writeup
+title: Pwn2Win - CmonSeemyVulns - Writeup
 tags: web, php, disable_functions, chankro
 ---
 
