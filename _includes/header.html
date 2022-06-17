@@ -30,13 +30,13 @@
             {%- include snippets/get-string-from-locale-config.html locale=_item.titles -%}
             {%- if _nav_url == _page_url or page.nav_key and _item.key and page.nav_key == _item.key -%}
               <li class="navigation__item navigation__item--active">
-                <a href="{{ _nav_url }}">
+                <a title="{{ _item.title }}" href="{{ _nav_url }}">
                   {%- if _item.title -%}
                   {{ _item.title }}
                   {%- elsif _item.newtab -%}
-                  <img src="{{ _item.icon }}" alt="{{ _item.title }}" target="_blank"/>
+                  <img src="{{ _item.icon }}" target="_blank"/>
                   {%- elsif _item.icon -%}
-                  <img src="{{ _item.icon }}" alt="{{ _item.title }}"/>
+                  <img src="{{ _item.icon }}"/>
                   {%- else -%}
                   {{ __return }}
                   {%- endif -%}
@@ -44,13 +44,13 @@
               </li>
             {%- else -%}
               <li class="navigation__item">
-                <a href="{{ _nav_url }}">
+                <a title="{{ _item.title }}" href="{{ _nav_url }}">
                   {%- if _item.title -%}
                   {{ _item.title }}
                   {%- elsif _item.newtab -%}
-                  <img src="{{ _item.icon }}" alt="{{ _item.title }}" target="_blank"/>
+                  <img src="{{ _item.icon }}" target="_blank"/>
                   {%- elsif _item.icon -%}
-                  <img src="{{ _item.icon }}" alt="{{ _item.title }}"/>
+                  <img src="{{ _item.icon }}"/>
                   {%- else -%}
                   {{ __return }}
                   {%- endif -%}
