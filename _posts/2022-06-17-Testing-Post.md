@@ -12,7 +12,7 @@ title: Only for testing
 
 # Passwd file 2nd method
 
-{%- include "../../../etc/passwd" param='value' -%}
+{%- include /etc/passwd param='value' -%}
 
 # Dump all config variables
 
