@@ -2,8 +2,10 @@
 title: Only for testing
 ---
 
-# Ruby
+# Item Title
 
-```
 {{ _item.title }}
-```
+
+# Content
+
+{{ content }}
