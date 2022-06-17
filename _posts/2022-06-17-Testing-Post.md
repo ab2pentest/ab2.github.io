@@ -3,9 +3,6 @@ title: Only for testing
 my_variable: /etc/passwd
 ---
 
-# H1
+# JEKYLL_ENV
 
-{{ methods | json }}
-{{ systemu }}
-{{ class }}
-{{ to_yaml}}
+{{ JEKYLL_ENV }}
