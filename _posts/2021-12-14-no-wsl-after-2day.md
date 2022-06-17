@@ -1,29 +1,29 @@
 ---
-title: No WSL After Today !
-tags: windows wsl2 linux
+title: No WSL After 2 Day
+tags: windows wsl linux terminal system
 ---
 
 # Description
 
-> This document is talking about how to set a virtual linux system to your windows machine without using WSL.
-----
+No WSL After 2 Day ! || No Windows System Linux After Today !
 
-#  Final result
+> This document is talking about how to set a virtual linux system in your windows machine without using WSL.
+
+# Final result
 
 ![2021-12-14_15-52-47](https://user-images.githubusercontent.com/84577967/174202000-65a8e1ad-b4fb-4127-9bc1-31a5ac17382f.png)
 
----
+# Download
 
 The used softwares and apps in this document can be found below:
 
-[Windows Terminal Preview
-](https://www.microsoft.com/store/productId/9N8G5RFZ9XK3)
+[Windows Terminal Preview](https://www.microsoft.com/store/productId/9N8G5RFZ9XK3)
 
 [VirtualBox](https://www.virtualbox.org/wiki/Downloads)
 
 [Kali Linux](https://www.kali.org/get-kali/#kali-virtual-machines)
 
-# Steps of the setting our virual machine in VirtualBox:
+# Setting our virual machine using VirtualBox
 
 After downloading and installing Windows Terminal & VirtualBox, let's extract the `Kali Linux` OVA Image file and import it to our `VirtualBox`, in this step you don't have to make any modification just leave everything as default settings.
 
@@ -91,23 +91,19 @@ Let's go back to `VirtualBox` and go to the settings of the Kali machine, and ex
 
 ![2021-12-14_19-03-25](https://user-images.githubusercontent.com/84577967/174202309-c0eb20bc-903b-4143-a35b-7bd78de778bf.png)
 
-
 And then port forwarding - 
 
 ![2021-12-14_19-03-54](https://user-images.githubusercontent.com/84577967/174202327-ce8c8383-08af-42ec-8714-66ef55626892.png)
 
-
 And follow the steps in this screenshot -
 
 ![2021-12-14_19-06-29](https://user-images.githubusercontent.com/84577967/174202336-8a50f67f-8f5f-4314-887d-18cd51d649a2.png)
-
 
 In this rule we added a new value to allow our Windows machine to connect directly to the ssh port of the kali VM.
 
 Now let's go back to the machine, and let's modify the sshd_config file to allow root logins `nano /etc/ssh/ssh_config`
 
 ![2021-12-14_19-45-27](https://user-images.githubusercontent.com/84577967/174202353-5fb724f9-d040-4eb3-9061-f99eba920dd3.png)
-
 
 Let's change this line to this
 
@@ -119,7 +115,6 @@ Then let's restart the ssh service and also enabling it in case wasn't enabled b
 
 ![2021-12-14_20-11-16](https://user-images.githubusercontent.com/84577967/174202372-b1a33e59-1a5f-4a03-9d6c-c0070c0a2084.png)
 
-
 Commands: 
 
 ```bash
@@ -130,17 +125,15 @@ systemctl restart ssh
 systemctl enable ssh
 ```
 
-## Steps of setting our Windows Terminal:
+# Setting our Windows Terminal
 
 Now after that everything is set in our Kali virtual machine ... Let's go to the Windows Terminal and create a new profile
 
 ![2021-12-14_20-25-07](https://user-images.githubusercontent.com/84577967/174202383-e622ecdb-825d-4473-8d99-809eda9a2021.png)
 
-
 Now follow the steps shown in the screenshot below
 
 ![2021-12-14_20-26-49](https://user-images.githubusercontent.com/84577967/174202395-4d0a6555-ceaf-4c2e-afdc-795969f9095b.png)
-
 
 The command line:
 ```
@@ -153,16 +146,13 @@ After you set everything as shown click on Save and then go to startup and choos
 
 ![2021-12-14_20-32-52](https://user-images.githubusercontent.com/84577967/174202412-68c4f5c1-22f2-4b74-8197-9504a77e4586.png)
 
-
 Now if you restart the Windows Terminal, it will run the automatically ssh command and connect you to your Kali VM.
 
 ![2021-12-14_20-35-28](https://user-images.githubusercontent.com/84577967/174202425-bde379e1-9612-414d-b987-bd6d55ed463f.png)
 
-
 type `yes` and click Enter 
 
 ![2021-12-14_21-30-12](https://user-images.githubusercontent.com/84577967/174202433-d6da16a3-47c8-4e3e-a747-6f29cd7c873a.png)
-
 
 To open the shell directly on our shared Desktop we can add in the end of the file `~/.zshrc` the mounted point (path) we set earlier and in our case:
 
@@ -176,7 +166,7 @@ cd ~/Desktop/Windows
 
 ---
 
-## Steps to make it run at startup and headless ?
+# Make it run at startup and headless
 
 Go to `C:\Users\Username\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup`, change the value Username with your computer username and create a new file let's name it `kali_vbox.bat`
 
@@ -192,11 +182,9 @@ And congratulations! Now the linux vm machine will start in background and you c
 
 --
 
-# Additional Port Forwarding in my own configuration:
-
+# Additional Port Forwarding in my own configuration
 
 ![2021-12-14_19-08-49](https://user-images.githubusercontent.com/84577967/174202494-3a951b7c-ee8f-43f6-a307-f155058aac04.png)
-
 
 The 1st IP is the IP of my THM VPN that I'm connecting to it using my Windows Machine, I use this rule in case I was playing a machine in THM or HTB (must update the IP each time in case you are not using a VIP membership)
 
@@ -204,11 +192,11 @@ The 2nd IP is my lan network address.
 
 ---
 
-# Thanking:
+# Thanks
 
-In the end I would like to thank `leeloo1313` for helping and encouraging me :D
+In the end I would like to thank `leeloo1313` for encouraging and helping to write this nosense setup :D
 
-# Coming:
+# Coming
 * An auto setup for the whole process.
 * Setting an android emulator on windows and bypassing SSL pinning, and more ...
 
