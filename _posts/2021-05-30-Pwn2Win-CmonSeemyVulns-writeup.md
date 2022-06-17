@@ -1,4 +1,7 @@
-# [Pwn2Win] CmonSeemyVulns writeup
+---
+title: [Pwn2Win] - CmonSeemyVulns - Writeup
+tags: web, php, disable_functions, chankro
+---
 
 ## Description
 
@@ -21,7 +24,7 @@ But first we have to check the 4th line where we have the regex pattern so our p
 
 ## Solution
 
-If we tries to send something like "200,{{phpinfo()}}" its going to be executed !
+If we tries to send something like `200,{{phpinfo()}}` its going to be executed !
 
 ![2021-05-30_21-11](https://user-images.githubusercontent.com/84577967/120118671-fdf55880-c193-11eb-9db9-0f1846e00f00.png)
 

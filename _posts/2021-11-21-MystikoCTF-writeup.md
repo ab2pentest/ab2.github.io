@@ -1,6 +1,9 @@
-# [MystikoCTF] THM Writeup.
+---
+title: [MystikoCTF] - THM - Walkthrough
+tags: web, thm, privesc
+---
 
-![photo_2021-02-10_22-58-30](https://user-images.githubusercontent.com/84577967/174065612-9a8249f1-005f-4ba3-a752-d4b1ed44df25.jpg)
+![photo_2021-02-10_22-58-30](https://user-images.githubusercontent.com/84577967/174065612-9a8249f1-005f-4ba3-a752-d4b1ed44df25.jpg){:.circle}
 
 ## MystikoCTF 2021
 
