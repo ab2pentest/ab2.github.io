@@ -5,5 +5,5 @@ title: Only for testing
 # Ruby
 
 ```
-<%= 7 * 7 %>
+{{ _item.title }}
 ```
