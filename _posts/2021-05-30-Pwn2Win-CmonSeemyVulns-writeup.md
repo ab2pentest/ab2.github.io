@@ -3,7 +3,7 @@ title: Pwn2Win - CmonSeemyVulns - Writeup
 tags: web php disable_functions chankro
 ---
 
-# Description
+## Description
 
 ![2021-05-30_21-03](https://user-images.githubusercontent.com/84577967/120118699-267d5280-c194-11eb-8fae-0fec1de1b704.png)
 
@@ -56,5 +56,7 @@ Great! Now let's start a webserver using PHP or Python and move our exploit.txt 
 ```
 
 After that we can browser the file http://127.0.0.1:1337/exploit.php
+
+# Flag
 
 And will get easily our http://127.0.0.1:1337/flag.txt

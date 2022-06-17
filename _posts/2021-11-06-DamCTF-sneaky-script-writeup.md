@@ -3,7 +3,7 @@ title: DamCTF - sneaky-script - Writeup
 tags: malware
 ---
 
-# Description
+## Description
 
 ![2021-11-06_16-24-36](https://user-images.githubusercontent.com/84577967/140614866-795e6e02-759e-4322-85fe-6517bc0879b6.png)
 
@@ -11,7 +11,7 @@ One of challenges from the recent CTF [DamCTF](https://damctf.xyz/) and the only
 
 # Solution
 
-We were given a zip file, after extracting we got 2 files a pcap file and a bash script
+We were given a zip file, after we extract it we have 2 files: a pcap file and a bash script
 
 ![2021-11-06_16-42-44](https://user-images.githubusercontent.com/84577967/140615375-62bf876d-6ee8-4f83-83eb-051c9c99b517.png)
 
