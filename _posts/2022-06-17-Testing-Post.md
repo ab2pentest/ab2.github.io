@@ -16,10 +16,7 @@ title: Only for testing
 
 # Dump all config variables
 
-{% for key, value in config.iteritems() %}
-    <dt>{{ key|e }}</dt>
-    <dd>{{ value|e }}</dd>
-{% endfor %}
+{{config.iteritems()}}
 
 # Basic 7*7
 
