@@ -3,13 +3,13 @@ title: DamCTF - sneaky-script - Writeup
 tags: malware
 ---
 
-# Description
+## Description
 
 ![2021-11-06_16-24-36](https://user-images.githubusercontent.com/84577967/140614866-795e6e02-759e-4322-85fe-6517bc0879b6.png)
 
 One of challenges from the recent CTF [DamCTF](https://damctf.xyz/) and the only one in the malware category.
 
-# Solution
+## Solution
 
 We were given a zip file, after extracting we got 2 files a pcap file and a bash script
 
@@ -52,7 +52,7 @@ def decrypt():
 		print(r)
 decrypt()
 ```
-# Flag
+## Flag
 
 The flag:
 
