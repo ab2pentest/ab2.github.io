@@ -11,14 +11,17 @@ my_variable: /etc/passwd
 
 <%= File.open('/etc/passwd').read %>
 
+# Passwd file 2nd method
+
+{%- include {{ page.my_variable }} param='value' -%}
 
 # Dump all config variables
 
-{{config.iteritems()}}
+{{config}}
 
 # Basic 7*7
 
-<%= 7 * 7 %>
+{%- 7 * 7 -%}
 
 # Self
 
