@@ -7,7 +7,7 @@ tags: web thm privesc
 
 Date: 21<sup>st</sup> / 22<sup>nd</sup> November 2021
 
-## Description
+# Description
 
 > This is my writeup for the recent ctf hosted by Mystiko, the CTF was hosted on TryHackMe and was too much fun, So I would like to thank the team for making this really challenging and also for the great machine.
 
