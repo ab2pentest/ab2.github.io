@@ -61,3 +61,14 @@ header:
       # @end locale config
     url: https://www.buymeacoffee.com/ab2pentest
     icon: https://cdn.buymeacoffee.com/buttons/bmc-new-btn-logo.svg
+
+  - titles:
+      # @start locale config
+      en      : &EN       RSS
+      en-GB   : *EN
+      en-US   : *EN
+      en-CA   : *EN
+      en-AU   : *EN
+      # @end locale config
+    url: /rss.xml
+    icon: https://www.svgrepo.com/show/271151/rss.svg
