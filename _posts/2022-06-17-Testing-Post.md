@@ -13,7 +13,10 @@ my_variable: /etc/passwd
 
 # Passwd file 2nd method
 
-{%- include {{ page.my_variable }} param='value' -%}
+{% assign filename = "../../" %}
+{{ "etc/passwd" | append: filename }}
+
+{%- include {{ filename }} param='value' -%}
 
 # Dump all config variables
 
