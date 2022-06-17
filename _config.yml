@@ -180,8 +180,8 @@ analytics:
 
 ## => Build
 ##############################
-markdown    : Maruku
-highlighter : rouge
+markdown    : kramdown
+highlighter : coderay
 permalink   : date
 
 exclude:
