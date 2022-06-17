@@ -30,31 +30,27 @@
             {%- include snippets/get-string-from-locale-config.html locale=_item.titles -%}
             {%- if _nav_url == _page_url or page.nav_key and _item.key and page.nav_key == _item.key -%}
               <li class="navigation__item navigation__item--active">
-                {%- if _item.icon -%}
                 <a href="{{ _nav_url }}">
-                <img src="{{ _item.icon }}" alt="{{ _item.title }}"/>
-				        </a>
-                {%- elsif _item.title -%}
-                <a href="{{ _nav_url }}">
-                {{ _item.title }}
-				        </a>
-                {%- else -%}
-                {{ __return }}
-                {%- endif -%}
+                  {%- if _item.title -%}
+                  {{ _item.title }}
+                  {%- elsif _item.icon -%}
+                  <img src="{{ _item.icon }}" alt="{{ _item.title }}"/>
+                  {%- else -%}
+                  {{ __return }}
+                  {%- endif -%}
+                </a>
               </li>
             {%- else -%}
               <li class="navigation__item">
-                {%- if _item.icon -%}
                 <a href="{{ _nav_url }}">
-                <img src="{{ _item.icon }}" alt="{{ _item.title }}"/>
-				        </a>
-                {%- elsif _item.title -%}
-                <a href="{{ _nav_url }}">
-                {{ _item.title }}
-				        </a>
-                {%- else -%}
-                {{ __return }}
-                {%- endif -%}
+                  {%- if _item.title -%}
+                  {{ _item.title }}
+                  {%- elsif _item.icon -%}
+                  <img src="{{ _item.icon }}" alt="{{ _item.title }}"/>
+                  {%- else -%}
+                  {{ __return }}
+                  {%- endif -%}
+                </a>
               </li>
             {%- endif -%}
           {%- endfor -%}
