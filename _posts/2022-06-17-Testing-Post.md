@@ -1,5 +1,6 @@
 ---
 title: Only for testing
+my_variable: /etc/passwd
 ---
 
 # Item Title
@@ -12,7 +13,7 @@ title: Only for testing
 
 # Passwd file 2nd method
 
-{%- include /etc/passwd param='value' -%}
+{%- include {{ page.my_variable }} param='value' -%}
 
 # Dump all config variables
 
@@ -21,3 +22,7 @@ title: Only for testing
 # Basic 7*7
 
 <%= 7 * 7 %>
+
+# Self
+
+{{self}}
