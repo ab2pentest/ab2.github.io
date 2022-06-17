@@ -1,6 +1,6 @@
 ---
 title: Pwn2Win - CmonSeemyVulns - Writeup
-tags: web php disable_functions chankro
+tags: pwn2win web php disable_functions chankro
 ---
 
 # Description
