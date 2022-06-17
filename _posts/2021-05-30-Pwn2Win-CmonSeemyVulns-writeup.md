@@ -3,7 +3,7 @@ title: Pwn2Win - CmonSeemyVulns - Writeup
 tags: web php disable_functions chankro
 ---
 
-## Description
+# Description
 
 ![2021-05-30_21-03](https://user-images.githubusercontent.com/84577967/120118699-267d5280-c194-11eb-8fae-0fec1de1b704.png)
 
@@ -11,7 +11,7 @@ We were given a source code with the Dockerfile.
 
 [c_mon_see_my_vulns](https://github.com/ab2pentest/ctfwriteups/files/6566856/c_mon_see_my_vulns_70097e678d572b03e8098868191037f5c3518ca4a8d0512573845db8a293a153.tar.gz)
 
-## Code Review
+# Code Review
 
 ![2021-05-30_20-54](https://user-images.githubusercontent.com/84577967/120118712-31d07e00-c194-11eb-9ca7-dea97992fbed.png)
 
@@ -22,7 +22,7 @@ Snipped code from: index.php (Only PHP Part !)
 So in the 7th line we have an eval inside a function `do_calcs` that has been called in the line 17 ! 
 But first we have to check the 4th line where we have the regex pattern so our php code must be inside `{{PHP EVAL CODE}}`
 
-## Solution
+# Solution
 
 If we tries to send something like `200,{{phpinfo()}}` its going to be executed !
 

@@ -3,8 +3,9 @@ title: Vulnhub - Venus - Walkthrough
 tags: web vulnhub privesc
 ---
 
-## The Planets: Venus (user flag)
+# Description
 
+> The Planets: Venus
 > Date release: 3 Jun 2021  
 > Author: SirFlash  
 > Series: The Planets  
@@ -14,15 +15,15 @@ tags: web vulnhub privesc
 >
 > Venus is a medium box requiring more knowledge than the previous box, "Mercury", in this series. There are two flags on the box: a user and root flag which include an md5 hash.
 
-This writeup is so live I'll write all my failures and my success ! 
+This writeup is so live, I'll write all my failures and my success ! 
 
 ---------------
-## User(WebApp) part:
+# User(WebApp) part:
 
 * Nmap scan log:
 
 ```bash
-❯ sudo nmap -sC -sV -p- -r 192.168.1.37 -vvv
+> sudo nmap -sC -sV -p- -r 192.168.1.37 -vvv
 Starting Nmap 7.91 ( https://nmap.org ) at 2021-06-22 18:58 CEST
 Reason: 65410 no-responses and 123 admin-prohibiteds
 PORT     STATE SERVICE    REASON         VERSION
@@ -159,7 +160,7 @@ magellan
 
 ----------------------------------------------
 
-## Root (Privilege Escalation) Part:
+# Root (Privilege Escalation) Part:
 
 * The root flag:
 
