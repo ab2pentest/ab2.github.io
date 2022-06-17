@@ -62,7 +62,7 @@
                 {%- if _excerpt_type == 'html' -%}
                   {{ _article.excerpt }}
                 {%- else -%}
-                  {{ _article.excerpt | strip_html | strip | truncate: _excerpt_truncate }}
+                  {{ _article.excerpt | strip_html | strip | newline_to_br | truncate: _excerpt_truncate }}
                 {%- endif -%}
               </div>
             {%- endif -%}
