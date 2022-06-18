@@ -130,9 +130,9 @@ comments:
   gitalk:
     clientID    : 48b33ec0ce4a5bc8feec # GitHub Application Client ID
     clientSecret: 39e9dafa1dbc780bd0370cff1e16ce7bd776160b # GitHub Application Client Secret
-    repository  : ab2pentest # GitHub repo
+    repository  : ab2pentest.github.io # GitHub repo
     owner       : ab2pentest # GitHub repo owner
-    admin: ab2pentest # GitHub repo owner and collaborators, only these guys can initialize GitHub issues, IT IS A LIST.
+    admin: # GitHub repo owner and collaborators, only these guys can initialize GitHub issues, IT IS A LIST.
       # - your GitHub Id
 
   ## Valine
