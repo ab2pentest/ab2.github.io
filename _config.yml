@@ -119,7 +119,7 @@ sharing:
 ## => Comments
 ##############################
 comments:
-  provider: gitalk # false (default), "disqus", "gitalk", "valine", "custom"
+  provider: false # false (default), "disqus", "gitalk", "valine", "custom"
 
   ## Disqus
   disqus:
@@ -128,10 +128,10 @@ comments:
   ## Gitalk
   # please refer to https://github.com/gitalk/gitalk for more info.
   gitalk:
-    clientID    : 48b33ec0ce4a5bc8feec # GitHub Application Client ID
-    clientSecret: 39e9dafa1dbc780bd0370cff1e16ce7bd776160b # GitHub Application Client Secret
-    repository  : ab2pentest.github.io # GitHub repo
-    owner       : ab2pentest # GitHub repo owner
+    clientID    : # GitHub Application Client ID
+    clientSecret: # GitHub Application Client Secret
+    repository  : # GitHub repo
+    owner       : # GitHub repo owner
     admin: # GitHub repo owner and collaborators, only these guys can initialize GitHub issues, IT IS A LIST.
       # - your GitHub Id
 
@@ -148,13 +148,13 @@ comments:
 ## => Pageview
 ##############################
 pageview:
-  provider: leancloud # false (default), "leancloud", "custom"
+  provider: false # false (default), "leancloud", "custom"
 
   ## Leancloud
   leancloud:
-    app_id    : EKvDrXWDE5cuYqS7XIsVlGdI-MdYXbMMI # LeanCloud App id
-    app_key   : 5hixoNl9mbaC17zfc1cjY4ly # LeanCloud App key
-    app_class : UsersView # LeanCloud App class
+    app_id    : # LeanCloud App id
+    app_key   : # LeanCloud App key
+    app_class : # LeanCloud App class
 
 
 ## => Search
