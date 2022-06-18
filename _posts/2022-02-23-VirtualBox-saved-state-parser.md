@@ -18,7 +18,7 @@ save *some* space but not at the cost of speed. It is ideal for
 repetitive data as well. The module is self-contained and very small.
 ```
 
-# Usage:
+# Usage
 
 We first need to clone/download it
 
