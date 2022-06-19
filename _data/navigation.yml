@@ -7,7 +7,7 @@ header:
       en-CA   : *EN
       en-AU   : *EN
       # @end locale config
-    url: /archive.html
+    url: /tags.html
 
   - titles:
       # @start locale config
