@@ -5,9 +5,11 @@ tags: thm web kubernetes kubectl lfi
 
 # Description
 
-Only one flag to catch ... !
+Room Link: [Island Orchestration](https://tryhackme.com/room/islandorchestration)
 
 ![2022-06-25_17-29](https://user-images.githubusercontent.com/84577967/175782516-de2830f0-1a00-4e41-bf61-4c8312532785.png)
+
+Only one flag to catch ... !
 
 # Recon
 
@@ -34,15 +36,15 @@ And looks like we are facing another LFI story ... Internet is full of LFI Cheat
 
 ![image](https://user-images.githubusercontent.com/84577967/175782872-51eb640f-22f2-4ef2-afd7-cba363eacd24.png)
 
-The way to get a reverse shell on this webapp is by trying to include the apache2 access_log, I found it on `/proc/self/fd/6`
+The way to get a reverse shell on this webapp is by trying to include the apache2 `access_log` or `access.log`, I actually found it on `/proc/self/fd/6`
 
 ![image](https://user-images.githubusercontent.com/84577967/175782863-b86ecd11-9215-4605-a7fd-dcb7f83b99a9.png)
 
-And then I injected my payload on UserAgent value
+Then I injected my payload on `User-Agent` value to check if it's really exploitable or not cause in some cases the PHP webapp uses `file_get_contents` or `fopen` and those functions won't execute any PHP code only `include`, `require`, `include_once` and `require_once` would execute the PHP codes of another file ...
 
 ![image](https://user-images.githubusercontent.com/84577967/175782913-8fc573d0-d623-4322-b454-5186f3efa5c6.png)
 
-And we easily were able to get an RCE
+Anyway, looks pretty whenever you get an RCE :smile:
 
 ![image](https://user-images.githubusercontent.com/84577967/175782954-55971df9-f2fc-46b9-84be-07587472fca7.png)
 
