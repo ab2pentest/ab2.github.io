@@ -207,6 +207,6 @@ Looks like we are getting close to get the flag ...
 ./kubectl get secret flag -o=json
 ```
 
-![image](https://user-images.githubusercontent.com/84577967/175783827-fb49db11-56a5-46ea-b936-f680658eed83.png)
+![image](https://user-images.githubusercontent.com/84577967/177194290-3569b03c-6b18-4ee2-920b-c594ddec82c3.png)
 
 We base64 decode the value flag and that's how we got our flag !
