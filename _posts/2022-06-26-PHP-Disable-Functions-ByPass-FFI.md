@@ -7,9 +7,9 @@ tags: php disable_functions bypass ffi
 
 Recently I faced a situation where most of php functions were disabled ... I rebuilt the environment in a docker container for more accurate debbuging
 
-## Docker setup
+# Docker setup
 
-### Dockerfile
+## Dockerfile
 
 ```
 FROM php:8.0-apache
@@ -31,13 +31,13 @@ RUN chown -R www-data:www-data /var/www/html/
 ENTRYPOINT ["apache2-foreground"]
 ```
 
-### Build
+## Build
 
 ```
 docker build -t phpffi .
 ```
 
-### Run 
+## Run 
 
 ```
 docker run --rm -ti -p 8081:80 phpffi
@@ -45,7 +45,7 @@ docker run --rm -ti -p 8081:80 phpffi
 
 The docker container `80` port was exposed to `8081` on my local machine
 
-## PHPInfo
+# PHPInfo
 
 ![image](https://user-images.githubusercontent.com/84577967/175967517-1f444bfa-dda2-4a68-9858-db0a007eb157.png)
 
@@ -59,19 +59,19 @@ What took my attention that FFI is **enable** !
 
 ![image](https://user-images.githubusercontent.com/84577967/177450983-8abfc720-d340-4d9e-a1bc-de89f6a8853c.png)
 
-## Foreign Function Interface (FFI)
+# Foreign Function Interface (FFI)
 
-### Important note
+## Important note
 
 **This extension is disabled in the default PHP installation.**
 
 ![image](https://user-images.githubusercontent.com/84577967/177450600-bb90dca4-c30c-4ca6-9970-e7e5a74d9900.png)
 
-### Introduction
+## Introduction
 
 ![image](https://user-images.githubusercontent.com/84577967/175815888-f097b514-c0ae-47ef-aee9-01ae58e1c99b.png)
 
-### Bypass disable functions
+## Bypass disable functions
 
 The FFI extension allow us to call any `C` function, and there is nothing better than calling a command execution function such [system](https://www.tutorialspoint.com/c_standard_library/c_function_system.htm)
 
@@ -97,7 +97,7 @@ And it worked !
 ![image](https://user-images.githubusercontent.com/84577967/177454143-0ac183c1-eb0e-4a25-b8bf-9ee195f5325e.png)
 
 
-### Final code
+## Final code
 
 The php code below will allow us to execute and print the result of any command
 
