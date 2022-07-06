@@ -7,7 +7,7 @@ tags: php disable_functions bypass ffi
 
 Recently I faced a situation where most of php functions were disabled ... I rebuilt the environment in a docker container for more accurate debbuging
 
-## Scenario in a container
+## Docker setup
 
 ### Dockerfile
 
