@@ -15,7 +15,7 @@ tags: web vulnhub privesc
 >
 > Venus is a medium box requiring more knowledge than the previous box, "Mercury", in this series. There are two flags on the box: a user and root flag which include an md5 hash.
 
-This writeup is so live, I'll write all my failures and my success ! 
+This writeup is being created in real-time, so it includes a record of both my successes and failures as I progress through the challenge. This can be helpful for others to learn from my experience and understand the process I followed ! 
 
 ---------------
 # User(WebApp) part
@@ -84,43 +84,45 @@ Nmap done: 1 IP address (1 host up) scanned in 243.85 seconds
 
 ![Pasted image 20210622192134](https://user-images.githubusercontent.com/84577967/127215599-f898ee03-4d0c-40a8-a97a-10e5014e6a95.png)
 
-* However when we browse see, we came to this `Credentials guest:guest can be used to access the guest account.`
+* When we browse it, we see this message `Credentials guest:guest can be used to access the guest account.`
 
-* In the login form let's log using the given creds ... After a successfull  that we have this sample HTML page
+* We can use the provided credentials to log in to the login form. If the login is successful, we will be presented with a simple HTML page.
 
 ![Pasted image 20210622192255](https://user-images.githubusercontent.com/84577967/127215602-7d125706-e970-414b-a0f0-ded64c54764d.png)
 
-* That has nothing interesting, I've download the image file `venus1.jpg`
+* That has nothing interesting, So I had download the image file `venus1.jpg` to continue my investigation.
 
 ![Pasted image 20210622192348](https://user-images.githubusercontent.com/84577967/127215605-f5b00a7e-8a27-43fc-bec0-11af115cd5e3.png)
 
-* And tried some steganography tools on it, but nothing is special with it !
+* I applied various steganography tools, but did not find anything unusual or hidden within the image.
 
-* Let's set our proxy on and re-login again ...
+* "We can go back to the webpage, enable our Burp proxy, and log in again.
 
 ![Pasted image 20210622192624](https://user-images.githubusercontent.com/84577967/127215622-d7ee3dc9-3e9d-4205-8a69-eced7ab35047.png)
 
-* What we notice is there a set cookie header in the response ! 
+* In the first response header response header, we see that a new cookie has been set.
 
 `Set-Cookie:  auth="Z3Vlc3Q6dGhyZmc="; Path=/`
 
-* Great ! it seems a base64 encoded value let's send it to decoder
+* It looks like the value of the cookie is encoded using base64. We can use a base64 decoder to reveal the contents of the cookie.
 
 ![Pasted image 20210622192705](https://user-images.githubusercontent.com/84577967/127215625-803f868c-9d7c-4bdd-be9e-0bc48db72f9f.png)
 
-* Result: `guest:thrfg` the first part is clear, the second after the separator `:` isn't clear !  I assume it's a rot13 (we can confirm that using cyberchef or any other online websites) and the guess was correct the *rot13'ed* value is `guest`.
+* The base64 decoder returned the value `guest:thrfg`. The first part, guest, is clear, but the second part after the separator `:` is not immediately recognizable. It is possible that this value has been encoded using the rot13 algorithm, which can be easily confirmed using tools such as CyberChef. If the assumption is correct, then the decoded value would be `guest`. 
 
-*  Anyway I tried to manipulate the cookies value (SQLInjection, Command Injection ... ) nothing is suspicious and nothing has worked !
+It seems that our guess was correct, as the decoded value indeed matches the expected result.
 
-*  Where is the bug ? The bug is if we remove the password value and the separator `:` its still working ! so the password isn't checked by the WebApp. 
+*  Despite attempting various types of cookie manipulation techniques such as SQL injection, command injection, ...
+
+I was not able to identify any vulnerabilities or achieve any successful results. It appears that the system is not susceptible to these types of attacks.
+
+* So where is the bug ? I have determined that the bug lies in the fact that the system does not properly check the password value. Even if we remove the password value and the separator :, the system still allows us to log in. This suggests that the password is not being properly validated by the webapp.
 
 ![Pasted image 20210622193200](https://user-images.githubusercontent.com/84577967/127215628-698ee80c-b54f-48c6-bd3f-6f450ccf1ee1.png)
 
-* And also if we send only the base64(user) value, the `auth` value will return in response both of `base64(user:rot13(pass))`.
+* Additionally, if we send only the base64 encoded username to the server, the auth value in the response will include both the username and password `base64(user:rot13(pass))`.
 
-* Great ! , We can now retrieve the password of any valid user !
-
- * Time to use some fuzzing and enumerating for other usernames using the login form and check if it says "Invalid password" and not "Invalid Username" .
+* Great ! We are able now to retrieve the password of any valid user, so its time to fuzz for a valid username.
 
 ```bash
 wfuzz -c -u "http://192.168.1.37:8080/" -d "username=FUZZ&password=elonmusk" -w WordList/raft-large-words.txt --ss "Invalid password."
@@ -128,7 +130,7 @@ wfuzz -c -u "http://192.168.1.37:8080/" -d "username=FUZZ&password=elonmusk" -w 
 
 ![Pasted image 20210622193332](https://user-images.githubusercontent.com/84577967/127215630-d482ba31-65db-454d-813c-ee6639ae322d.png)
 
-* After it finished ! we got 3 valid users:
+* we got 3 new valid users:
 
 ```bash
 guest
@@ -136,7 +138,7 @@ venus
 magellan
 ```
 
-* So let's try to get the password of venus and magellan !
+* Let's try to get the password of both `venus` and `magellan` !
 
 ![Pasted image 20210622193516](https://user-images.githubusercontent.com/84577967/127215632-37832465-61cf-4599-a2ec-c7dda29ca378.png)
 
@@ -150,7 +152,7 @@ magellan
 
 * The password for `venus` is: `venus`
 
-* I tried the credentials on ssh and I was able to login with `magellan` . 
+* I tried the credentials on SSH and I was able to login with `magellan` . 
 
 ![Pasted image 20210622194522](https://user-images.githubusercontent.com/84577967/127215641-3a3563e3-13a8-4d4d-84cd-96ac900befc7.png)
 
@@ -168,18 +170,17 @@ After some enumeration I came to this:
 
 *Active Ports:*
 
-
 ![Pasted image 20210727202655](https://user-images.githubusercontent.com/84577967/127215674-6b40059e-d40d-4890-adf3-058eecaddad3.png)
 
 ![Pasted image 20210622200344](https://user-images.githubusercontent.com/84577967/127215653-defc2c6f-8019-452a-b8b2-9dc7525a96b5.png)
 
- * We have an expected port wich is 9080, let's dig more ...
+ * We have an unexpected port wich is 9080, let's dig more ...
 
 ![Pasted image 20210727202628](https://user-images.githubusercontent.com/84577967/127215670-97e4a79b-de27-45ac-ac94-9e4a09140acf.png)
 
-* So this is a kinda of service executed by root !
+* Based on the information provided, it appears that this is a service that is being run by the root user !
 
- * We can confirm by looking at the process list.
+ * We can confirm that the service is being run by the root by examining the process list.
 
 ![Pasted image 20210727202501](https://user-images.githubusercontent.com/84577967/127215661-8e8aabcd-e9cd-44ab-abdc-1e4687f774aa.png)
 
@@ -187,6 +188,6 @@ After some enumeration I came to this:
 
 ![Pasted image 20210727202604](https://user-images.githubusercontent.com/84577967/127215665-f5b39a4f-7199-4a09-bdf6-5de07a962203.png)
 
-* The binary exploitation was done by datajerk,The full story and writeup => [Binary Exploitation writeup](https://github.com/datajerk/ctf-write-ups/tree/master/vulnhub/venus).
+* The binary exploitation part was done by my dear friend `datajerk` [Binary Exploitation writeup](https://github.com/datajerk/ctf-write-ups/tree/master/vulnhub/venus).
 
 Hope you enjoyed the writeup !
