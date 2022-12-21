@@ -5,19 +5,19 @@ tags: hackyholidays malware linux forensics reversing
 
 # Description
 
-This challenge was in both forensics and reversing categories
+This challenge was in both the forensics and reversing categories
 
 ![image](https://user-images.githubusercontent.com/84577967/178866898-e4fcedc6-2d0d-4bc2-a2de-8237f9e290a8.png)
 
 # Solution
 
-The challenge is a container that we can pull using the command in description
+The challenge is a container that can be pulled using the command described in the challenge description.
 
 ```bash
 docker run -ti hackazon/micro_ghost /bin/sh
 ```
 
-As a fan of `bash` shell I had to change the `/bin/sh` to `/bin/bash`
+As a fan of `bash` shell, I had to change the `/bin/sh` to `/bin/bash`
 
 ```bash
 docker run -ti hackazon/micro_ghost /bin/bash
@@ -25,7 +25,7 @@ docker run -ti hackazon/micro_ghost /bin/bash
 
 ![image](https://user-images.githubusercontent.com/84577967/178867304-81b759ea-a401-424c-9980-758741ec271b.png)
 
-Now after we pull up the full docker image we can investigate on the command history 
+After we pull up the full docker image, we can investigate the command history
 
 ```bash
 docker history IMAGEID
@@ -46,7 +46,7 @@ docker history fc6642d32b03
 
 ![image](https://user-images.githubusercontent.com/84577967/178867679-d7af4be8-2293-480f-9441-5cdf8b75a792.png)
 
-But the output isn't complete we can add new arguments and jq to beautify the output
+The output of the command may not be complete, but we can add additional arguments and use the `jq` tool to beautify the output.
 
 ```bash
 docker history --format "{{json .}}" fc6642d32b03 --no-trunc |jq .
@@ -174,25 +174,25 @@ And just seconds before that it was executed
 }
 ```
 
-So we have to check the precedent layers where we can find the original file, and one of the more straightforward ways to examine a Docker image's layers is by saving it to a tar archive
+In order to find the original file, we need to examine the preceding layers of the Docker image. One way to do this is by saving the image to a tar archive, which allows us to easily examine the individual layers of the image.
 
 ```bash
 docker save fc6642d32b03 > fc6642d32b03.tar
 ```
 
-After that we extract the tar file, there is a file named `manifest.json` has all the layers and will help us in investigating
+After extracting the tar file, we can locate a file called `manifest.json`, which contains information about all the layers of the image. This file can be useful in our investigation.
 
 ![image](https://user-images.githubusercontent.com/84577967/178868876-4b131905-8e26-46e2-8055-edfeb0d9ec21.png)
 
-So as the file was copied in the 3rd operation like I mentioned eariler and the 2nd operation is just a CMD command, our binary file can be found on the second layer `104337d79b4c7be52c587e29595ddf09df584bd991875e10392a0fc1fd901b57/layer.tar`
+The file was copied in the third operation, and the second operation was just a CMD command. This means that the binary file we are looking for may be located in the second layer of the image `104337d79b4c7be52c587e29595ddf09df584bd991875e10392a0fc1fd901b57/layer.tar`.
 
 ![image](https://user-images.githubusercontent.com/84577967/178869275-0e071309-fcf8-4e51-8d5a-32c55f1db72b.png)
 
-Let's open it in `Cutter` for disassembling and see what we have
+Let's open it in `Cutter` to disassemble the binary and gain a deeper understanding of what it does
 
 ![image](https://user-images.githubusercontent.com/84577967/178871965-9a8941ef-aae7-44da-b837-de160fdc5ccd.png)
 
-I found some functions that shows that the binary is a kind of a malware
+Upon examining the functions of the binary, it appears that it may be a type of malware.
 
 ![image](https://user-images.githubusercontent.com/84577967/178872535-5ff482ec-95c6-49f5-bc99-07121fce5e9a.png)
 
@@ -200,15 +200,15 @@ I found some functions that shows that the binary is a kind of a malware
 
 ![image](https://user-images.githubusercontent.com/84577967/178877053-a128d4f5-b6a5-4757-a4da-5f4703b9ca3c.png)
 
-The third function in the screenshot shows a kind of loop that get's their values from the main function
+In the screenshot below, the third function appears to be a loop that retrieves its values from the main function.
 
 ![image](https://user-images.githubusercontent.com/84577967/178877935-a1227b25-ee6f-4778-9827-9a577b954532.png)
 
-So let's copy the binary file in another ubuntu container to run it safely and see what actually the malware does ...
+In order to safely run the binary and see what it does, we can copy it to a `Ubuntu` container. This will allow us to examine the malware's behavior without exposing our host system to any potential risks.
 
 ![image](https://user-images.githubusercontent.com/84577967/178881692-9f8b49c1-4d1a-4f69-8370-181bcd329351.png)
 
-So the malware is doing all what we've seen in the function's above
+Based on the functions we have analyzed, it seems that the malware performs the actions that we have identified.
 
 ```C
 void fcn.00001208(void)
@@ -221,11 +221,12 @@ void fcn.00001208(void)
 }
 ```
 
-But what we couldn't see is the 3rd function, that ltrace shows here
+The third function with the loop was not initially visible to us. 
+However, using the ltrace tool has allowed us to see this function and gain a better understanding of the malware's behavior.
 
 ![image](https://user-images.githubusercontent.com/84577967/178882405-f8c61a1f-ee66-4cc7-9a92-9fa9c36113c3.png)
 
-Ltrace limits the strings output to 32, we can change that by adding a new arguments `-s "number of strings"`
+By default, ltrace limits the output of strings to 32 characters. However, we can use additional arguments to change this behavior `-s "number of strings"` and view longer strings if needed.
 
 ```bash
 ltrace -s 200 ./libc.so.evil.6
@@ -233,7 +234,7 @@ ltrace -s 200 ./libc.so.evil.6
 
 # Flag
 
-And like that we could get our flag !
+We were able to successfully retrieve the flag for the challenge.
 
 ![image](https://user-images.githubusercontent.com/84577967/178882767-4f9706a0-ff9b-41ac-a9f5-add41e77b7a8.png)
 
