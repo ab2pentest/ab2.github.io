@@ -7,35 +7,37 @@ tags: damctf malware
 
 ![2021-11-06_16-24-36](https://user-images.githubusercontent.com/84577967/140614866-795e6e02-759e-4322-85fe-6517bc0879b6.png)
 
-One of challenges from the recent CTF [DamCTF](https://damctf.xyz/) and the only one in the malware category.
+This challenge was part of a recent CTF [DamCTF](https://damctf.xyz/), and it was the only challenge in the malware category.
 
 # Solution
 
-We were given a zip file, after we extract it we have 2 files: a pcap file and a bash script
+Upon extracting the provided zip file, we found that it contained two files: a pcap file and a bash script.
 
 ![2021-11-06_16-42-44](https://user-images.githubusercontent.com/84577967/140615375-62bf876d-6ee8-4f83-83eb-051c9c99b517.png)
 
-After checking the bash script I came to this line that shows us that the bash script is downloading a python file from a host and executing it.
+Examining the bash script, I found a line of code that indicates that the script is downloading and executing a Python file from a remote host.
 
 ![2021-11-06_16-20-48](https://user-images.githubusercontent.com/84577967/140615442-3020d258-13cd-4cbb-988a-f7fa3714f7d5.png)
 
-Great ! if we check the host will find it down, but let's go to the pcap file and take a look on the captured trafics will find the base64 encoded file
+Although the host mentioned in the bash script appears to be down, we can still examine the pcap file to see if it contains any useful information.
+By analyzing the captured traffic in the pcap file, we were able to find the base64 encoded file that was downloaded and executed by the bash script.
 
 ![2021-11-06_16-20-19](https://user-images.githubusercontent.com/84577967/140615524-cae32560-bb31-400e-ba73-280f338c8ce8.png)
 
-Let's decode it and check it using `file`
+We can use a base64 decoder to decode the file and then use the `file` tool to identify the type of file.
 
 ![2021-11-06_16-48-20](https://user-images.githubusercontent.com/84577967/140615571-5f638027-cfd4-4b8a-b8e2-ced6a0ff8392.png)
 
-So using [uncompyle6](https://github.com/rocky/python-uncompyle6/) we can decomplie the file 
+A python3.6 byte-compiled file, we can use [uncompyle6](https://github.com/rocky/python-uncompyle6/) to decomplie the file.
 
 ![2021-11-06_16-23-12](https://user-images.githubusercontent.com/84577967/140615661-19c0c02c-a1a5-4464-a783-1a0a93cbfbdf.png)
 
-So the python file stole some information: `network, process list, ssh keys ...`  and send it to a new host on endpoint `/upload`
+Upon analyzing the Python file, we found that it was designed to collect sensitive information such as `network, process list, ssh keys ...`, and send it to a new host at the endpoint `/upload`.
 
 ![2021-11-06_16-23-32](https://user-images.githubusercontent.com/84577967/140616016-873d16b8-bd62-4271-85ff-eb0c74c67032.png)
 
-But the sent data is encrypted using XOR and the key `8675309`, to decrypt it let's save it in a file and run the python script
+The data that was transmitted by the Python file was encrypted using the XOR algorithm and the key `8675309`. 
+To decrypt this data, we can save it to a file and run a Python script to apply the decryption process using the known key.
 
 ```python
 import base64
