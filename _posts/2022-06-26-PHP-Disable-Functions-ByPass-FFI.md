@@ -5,7 +5,7 @@ tags: php disable_functions bypass ffi
 
 # Description
 
-Recently I faced a situation where most of php functions were disabled ... I rebuilt the environment in a docker container for more accurate debbuging
+Recently, I encountered a situation where most PHP functions were disabled. To facilitate more accurate debugging and analysis, I recreated the environment in a Docker container.
 
 # Docker setup
 
@@ -43,7 +43,7 @@ docker build -t phpffi .
 docker run --rm -ti -p 8081:80 phpffi
 ```
 
-The docker container `80` port was exposed to `8081` on my local machine
+In order to access the web application running in the Docker container, I exposed port `80` in the container to port `8081` on my local machine.
 
 # PHPInfo
 
@@ -51,7 +51,7 @@ The docker container `80` port was exposed to `8081` on my local machine
 
 ## Disable Functions List
 
-Yeah ! You probably wondering why he used PHP at first 😆, don't complain please ...
+It's possible that you are wondering why the application was originally written in PHP 😆! Don't worry about it and just keep reading! No complaining allowed.
 
 ![image](https://user-images.githubusercontent.com/84577967/175967567-28591459-8d33-4b91-b5e5-13e175e6660f.png)
 
@@ -73,7 +73,7 @@ What took my attention that FFI is **enable** !
 
 ## Bypass disable functions
 
-The FFI extension allow us to call any `C` function, and there is nothing better than calling a command execution function such [system](https://www.tutorialspoint.com/c_standard_library/c_function_system.htm)
+The FFI (Foreign Function Interface) extension in PHP allows developers to call any C function from within PHP code. This can be very useful, as it allows you to execute command-line functions such as `system()`. [system](https://www.tutorialspoint.com/c_standard_library/c_function_system.htm)
 
 ![image](https://user-images.githubusercontent.com/84577967/177451478-a105560b-18e3-48af-9ee5-65b67419a098.png)
 
@@ -81,9 +81,9 @@ We have to create a new FFI object using the `cdef` function
 
 ![image](https://user-images.githubusercontent.com/84577967/177452813-c9cbf070-cd3a-40c8-85f5-232f7c81417c.png)
 
-After many tries I thought I wasn't able to execute commands but the problem was in printing out the result using `echo, print, ...` that will never work 😛
+Despite my initial efforts, I was unable to execute commands using the FFI extension. After some trial and error, I realized that the problem was with my attempts to print the results using functions such as echo or print. These functions are not capable of properly displaying the output of command-line functions, so I had to find a different way to retrieve and display the results of my commands.
 
-So I ended up with this small php code to check really if that will create a `test` file
+Ultimately, I was able to create a small PHP script to test whether I was able to execute commands using the FFI extension. The script attempted to create a file named test, which would be an indication that command execution was successful. The code I used:
 
 ```php
 <?php 
@@ -99,7 +99,7 @@ And it worked !
 
 ## Final code
 
-The php code below will allow us to execute and print the result of any command
+The PHP code below can be used to execute and print the result of any command:
 
 ```php
 <?php
