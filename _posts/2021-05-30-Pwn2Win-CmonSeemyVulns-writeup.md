@@ -7,7 +7,7 @@ tags: pwn2win web php disable_functions chankro
 
 ![2021-05-30_21-03](https://user-images.githubusercontent.com/84577967/120118699-267d5280-c194-11eb-8fae-0fec1de1b704.png)
 
-We were given the source code for the Dockerfile, we can build it locally and work on it directly on our own system.
+We were given the source code and the Dockerfile, we can build it locally and work on it directly on our own system.
 
 [c_mon_see_my_vulns](https://github.com/ab2pentest/ctfwriteups/files/6566856/c_mon_see_my_vulns_70097e678d572b03e8098868191037f5c3518ca4a8d0512573845db8a293a153.tar.gz)
 
