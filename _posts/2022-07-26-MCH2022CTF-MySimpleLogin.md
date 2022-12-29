@@ -15,29 +15,29 @@ We were given an APK file
 
 ![image](https://user-images.githubusercontent.com/84577967/181047436-7a829280-379b-4711-bc60-42742f8e25fe.png)
 
-After we download it let's open it in any `Android dex decompiler` ...
+After downloading the APK file, we can use any Android DEX decompiler to open it.
 
-First thing is looking for the entrypoint or the main activitiy, this can be found on `AndroidManifest.xml` file
+To find the entry point or main activity, we can check the `AndroidManifest.xml` file.
 
 ![image](https://user-images.githubusercontent.com/84577967/181079155-a0d568ea-ddb7-455e-9972-a4a892de12a3.png)
 
-Our MainActivity is `ctf.challenges.mysimplelogin.MainActivity` as shown in the screenshot above, so let's go there and check what we have
+The main activity for this APK is `ctf.challenges.mysimplelogin.MainActivity`, as shown in the screenshot. We can examine this activity to see what it does.
 
 ![image](https://user-images.githubusercontent.com/84577967/181080067-90b3be68-23e9-4421-8cad-a172836803dd.png)
 
-So from the decompiled code it's obvious that we have a password checker and this function explains it
+Based on the decompiled code, there is a password checker present in the APK. This function appears to describe how it works.
 
 ![image](https://user-images.githubusercontent.com/84577967/181080733-72c304ee-1557-4dc8-ac21-c31003617f00.png)
 
-So the function get's our input value defined as `i` and add to it the string value of `s` and pass it to a function called `l` and checks the output of it if equals the value of `h`, in case it's true is going to call `showError(w);` and in case it's false is going to call `showFlag(f);` this looks a bit illogic, let's ignore this now and keep reading the code ...
+The function takes an input value `i`, adds it to the string value of `s`, and passes the result to a function called `l`. It then compares the output of `l` to the value of `h`. If they are equal, it calls `showError(w);` if they are not equal, it calls `showFlag(f)`. This seems somewhat illogical, so we should continue reading the code to see if we can find more context or clarification.
 
 [+] The `l` function:
 
-This function is just calculating the md5sum of `i+s`
+The `l` function appears to be calculating the MD5 hash of the concatenation of `i` and `s`.
 
 ![image](https://user-images.githubusercontent.com/84577967/181081555-50cb2c2a-7a4d-4650-a921-02cb378078a3.png)
 
-Great ! But where is `s` and `h` and all the defined string values ..., well in the decompiled code we can see that they are coming from resources
+It's good to know how the `l` function works. To find the values of `s`, `h`, and other string variables, we can check the resources section of the decompiled code.
 
 ```
         String s = getResources().getString(R.string.OO0O00OOO00O0O);
@@ -46,7 +46,7 @@ Great ! But where is `s` and `h` and all the defined string values ..., well in 
         String w = getResources().getString(R.string.OO0O0OOOO00OOO);
 ```
 
-So in the path `res/values/strings.xml` these values were saved
+It looks like the values of `s`, `h`, and other string variables are stored in the `strings.xml` file located in the `res/values` directory.
 
 ![image](https://user-images.githubusercontent.com/84577967/181082923-6e104e26-22a1-4d41-aa3c-e95ba1692f7b.png)
 
@@ -70,13 +70,13 @@ was called in `showError(w);`
 
 ![image](https://user-images.githubusercontent.com/84577967/181084106-d3129dc2-5996-4883-9a8d-fc33c8a8f3e4.png)
 
-Now I confirm that the `showError(w);` is the where our flag is saved and not in `showFlag(f);`, so let's check it
+Based on the information we have gathered, it appears that the flag is stored in the `showError(w)` function, not in the `showFlag(f)` function.
 
 ![image](https://user-images.githubusercontent.com/84577967/181085016-83d5e086-9a31-42e8-aeb2-0b3238073dba.png)
 
-So in case we give it the right input it's goint to pass it to the `x` function once and 7 times to `r`, so I didn't waste lot of time and I immedeatly copied the 3 functions in a new .java file
+If we provide the correct input to the app, it looks like it will pass it to the `x` function once and then to the `r` function 7 times.To save time, I immedeatly copied the 3 functions in a new .java file.
 
-**Note: the original value of `w` has some escaped characeters, so I paste it to this [HTML Entities decoder](https://www.online-toolz.com/tools/text-html-entities-convertor.php)**
+**Note: the original value of `w` contains some escaped characeters, so I paste it to this [HTML Entities decoder](https://www.online-toolz.com/tools/text-html-entities-convertor.php) for decoding.**
 
 ```java
 public class MainActivity{
@@ -105,6 +105,6 @@ public class MainActivity{
 
 # Flag
 
-Just run the script above and it will print out the flag for you
+By running the java code above, you should be able to see the flag printed out.
 
 ![image](https://user-images.githubusercontent.com/84577967/181085672-5b57ce5a-065f-4ae8-b9d9-679d1bd86521.png)
