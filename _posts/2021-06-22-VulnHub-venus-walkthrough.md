@@ -188,6 +188,8 @@ After some enumeration I came to this:
 
 ![Pasted image 20210727202604](https://user-images.githubusercontent.com/84577967/127215665-f5b39a4f-7199-4a09-bdf6-5de07a962203.png)
 
-* The binary exploitation part was done by my dear friend `datajerk` [Binary Exploitation writeup](https://github.com/datajerk/ctf-write-ups/tree/master/vulnhub/venus).
+## The binary exploitation 
 
-Hope you enjoyed the writeup !
+This part was done by my dear friend [datajerk](https://github.com/datajerk/ctf-write-ups/tree/master/vulnhub/venus).
+
+Hope you enjoyed the walkthrough !
