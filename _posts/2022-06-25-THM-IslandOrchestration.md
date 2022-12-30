@@ -13,7 +13,7 @@ Only one flag to catch ... !
 
 # Recon
 
-With `nmap` we can find 2 opened ports
+Using `nmap`, we can find that there are two open ports.
 
 ```
 Nmap scan report for 10.10.160.23
@@ -32,23 +32,24 @@ We have a PHP webapp on port 80
 
 ![image](https://user-images.githubusercontent.com/84577967/175782758-ed3c0642-5acc-4fba-92ab-e60e28d9f95d.png)
 
-And looks like we are facing another LFI story ... Internet is full of LFI Cheat Sheet ...
+It seems that we are dealing with a Local File Inclusion (LFI) vulnerability. LFI vulnerabilities allow an attacker to include local files on the target system in HTTP requests and access their contents. There are many resources available online, that can help with identifying and exploiting LFI vulnerabilities.
 
 ![image](https://user-images.githubusercontent.com/84577967/175782872-51eb640f-22f2-4ef2-afd7-cba363eacd24.png)
 
-The way to get a reverse shell on this webapp is by trying to include the apache2 `access_log` or `access.log`, I actually found it on `/proc/self/fd/6`
+To get a reverse shell on this web application, we can try including the Apache2 `access_log` or `access.log` file. I actually ended up by finding the location of this file by reading the `/proc/self/fd/6` file.
 
 ![image](https://user-images.githubusercontent.com/84577967/175782863-b86ecd11-9215-4605-a7fd-dcb7f83b99a9.png)
 
-Then I injected my payload on `User-Agent` value to check if it's really exploitable or not cause in some cases the PHP webapp uses `file_get_contents` or `fopen` and those functions won't execute any PHP code only `include`, `require`, `include_once` and `require_once` would execute the PHP codes of another file ...
+I injected a payload into the `User-Agent` value. Some PHP web applications use functions such as `file_get_contents` or `fopen` to include/read external files, but these functions do not execute PHP code.
+Only functions like `include`, `require`, `include_once`, and `require_once` can execute PHP codes.
 
 ![image](https://user-images.githubusercontent.com/84577967/175782913-8fc573d0-d623-4322-b454-5186f3efa5c6.png)
 
-Anyway, looks pretty whenever you get an RCE :smile:
+Anyway, It seems that we have successfully gained Remote Code Execution (RCE) :smile:.
 
 ![image](https://user-images.githubusercontent.com/84577967/175782954-55971df9-f2fc-46b9-84be-07587472fca7.png)
 
-And to get a reverse shell I injeted this payload
+To get a reverse shell, I injected this payload:
 
 ![image](https://user-images.githubusercontent.com/84577967/175783019-f7aa1a23-5564-4ae1-a410-1ba2ed0a3dbd.png)
 
@@ -62,13 +63,14 @@ I wasn't able to find some linux binaries such `ifconfig`, `curl` ...
 
 ![image](https://user-images.githubusercontent.com/84577967/175783088-70c25bb8-2acb-40bd-b9c8-3231eaf41ffb.png)
 
-So I directly knew that we are inside a docker container or something similar ... and usually in these cases I use my repo where I collected most of linux binaries [linux-static-binaries](https://github.com/ab2pentest/linux-static-binaries)
+I immediately suspected that we were inside a Docker container or a similar environment. In such cases, I often use a repository of Linux static binaries that I have collected
+[linux-static-binaries](https://github.com/ab2pentest/linux-static-binaries).
 
 So let's upload `ifconfig` and see what we have here
 
 ![image](https://user-images.githubusercontent.com/84577967/175783182-0f89544d-249d-4008-81ad-c00d15955af8.png)
 
-Great ! looks like we are in a docker let's use nmap and see if we have other containers ... I use this static binary [nmap-static-binaries](https://github.com/opsec-infosec/nmap-static-binaries)
+It looks like our suspicion was correct and we are indeed inside a Docker container. To see if there are any other containers on the system, we can use this nmap static binary [nmap-static-binaries](https://github.com/opsec-infosec/nmap-static-binaries).
 
 After uploading it
 
@@ -133,7 +135,7 @@ PORT      STATE    SERVICE   REASON
 
 ### 172.17.0.2
 
-I didn't know what this host is doing ...
+I didn't know what this host was doing ...
 
 ```bash
 ./nmap -sC -sV 172.17.0.2 -p- -vvv
@@ -154,7 +156,7 @@ PORT     STATE SERVICE    REASON  VERSION
 
 ## Kubernetes
 
-So the first thing I always do is downloading `kubectl`
+One of the first things I usually do is download `kubectl`, which is a command-line tool for controlling Kubernetes clusters.
 
 ```
 curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl"
@@ -168,11 +170,11 @@ Let's try to list pods
 
 ![image](https://user-images.githubusercontent.com/84577967/175783551-9ba5d6ff-a7e9-41dc-8972-a77174a1bf4f.png)
 
-The user has no rights to list pods, so let's inspect authorization first 
+It seems that the user does not have the necessary permissions to list pods, so let's inspect authorization first 
 
 ![image](https://user-images.githubusercontent.com/84577967/175783621-a93738c1-3c71-4fe3-940e-5446b0d20336.png)
 
-Using the command below we can list all what our current user can do
+We can use the following command to see what our current user is authorized to do
 
 ```
 ./kubectl auth can-i --list
@@ -180,7 +182,7 @@ Using the command below we can list all what our current user can do
 
 ![image](https://user-images.githubusercontent.com/84577967/175783658-e9fe2bfa-96ab-4bc6-a996-89701ac02ff4.png)
 
-There is a reousrce named `secrets` let's check what we have there
+There is a resource called `secrets` that we can examine. Secrets in Kubernetes are objects that contain sensitive data, such as passwords, OAuth tokens, and SSH keys. By checking the secrets resource, we may be able to find sensitive information that could be useful for accessing other resources or escalating privileges.
 
 ```bash
 ./kubectl get secrets
@@ -188,7 +190,7 @@ There is a reousrce named `secrets` let's check what we have there
 
 ![image](https://user-images.githubusercontent.com/84577967/175783710-ada11fa5-38ff-47c3-b1c6-386b2156e251.png)
 
-Looks like we are getting close to get the flag ...
+It seems that we are making progress and getting closer to finding the flag ...
 
 ```bash
 ./kubectl describe secrets/flag
@@ -209,4 +211,4 @@ Looks like we are getting close to get the flag ...
 
 ![image](https://user-images.githubusercontent.com/84577967/177194290-3569b03c-6b18-4ee2-920b-c594ddec82c3.png)
 
-We base64 decode the value flag and that's how we got our flag !
+We are able to obtain the flag by base64 decoding the value of the flag.
