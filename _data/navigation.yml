@@ -40,7 +40,7 @@ header:
       en-AU   : *EN
       # @end locale config
     url: /rss.xml
-    icon: https://img.icons8.com/fluency/512/rss.png
+    icon: /assets/icons8-rss-96.png
 
   - titles:
       # @start locale config
