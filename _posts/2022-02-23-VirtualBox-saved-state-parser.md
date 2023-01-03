@@ -7,7 +7,7 @@ tags: virtualbox forensics
 
 1) This tool has been used back in 2014 for a CTF Challenge [ASIS-QUALS-2014](http://blog.rentjong.net/2014/05/asis-quals-2014-forensic-300.html)
 
-2) I found this tool to be interesting and decided to save it here in my GitHub repository. I am not sure who the original author of the tool is, but I wanted to preserve it for future reference and potentially contribute to its development..
+2) I found this tool to be interesting and decided to save it here in my [GitHub repository](https://github.com/ab2pentest/VirtualBox_SavedState_Parser). I am not sure who the original author of the tool is, but I wanted to preserve it for future reference and potentially contribute to its development..
 
 3) Also you must know that this tool use [liblzf](http://cvs.schmorp.de/liblzf/README) library.
 
