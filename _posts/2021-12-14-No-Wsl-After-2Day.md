@@ -100,7 +100,7 @@ And follow the steps in this screenshot -
 
 In this rule we added a new value to allow our Windows machine to connect directly to the ssh port of the kali VM.
 
-Now let's go back to the machine, and let's modify the sshd_config file to allow root logins `nano /etc/ssh/ssh_config`
+Now let's go back to the machine, and let's modify the sshd_config file to allow root logins `nano /etc/ssh/sshd_config`
 
 ![2021-12-14_19-45-27](https://user-images.githubusercontent.com/84577967/174202353-5fb724f9-d040-4eb3-9061-f99eba920dd3.png)
 
