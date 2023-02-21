@@ -63,7 +63,6 @@ Default creds: kali/kali
 
 We need this to check only if our VM is working fine and also to check the network settings.
 
-**Note: Record your IP address - we will need it later.**
 
 ![2021-12-14_18-44-16](https://user-images.githubusercontent.com/84577967/174202154-04de206f-d53a-4c50-b269-305ca7962783.png)
 
