@@ -71,7 +71,7 @@ So by going to terminal and type `sudo su -` then `ssh-keygen` and pressing `Ent
 
 ![2021-12-14_18-52-07](https://user-images.githubusercontent.com/84577967/174202168-c82c4034-53d5-4ecb-b17e-2ace5b0ffba8.png)
 
-After that let's copy `id_rsa.pub` to `authorized_keys` by typing: `cp id_rsa.pub authorized_keys`
+After that let's copy `id_rsa.pub` to `authorized_keys` by typing: `cp id_rsa.pub authorized_keys`, then changing the file permissions using chmod to set the access mode to 600 `chmod 600 authorized_keys`.
 
 And then copy the private key `cat /root/.ssh/id_rsa`
 
@@ -80,6 +80,17 @@ And then copy the private key `cat /root/.ssh/id_rsa`
 And paste it into your Windows Desktop Directory
 
 ![2021-12-14_19-21-39](https://user-images.githubusercontent.com/84577967/174202256-6ad3889f-d284-4e1e-9dcd-329cc2db2dfd.png)
+
+It's important to also change the permissions of the id_rsa file in Windows.
+
+Please save the code in a file with a .cmd or .bat extension, and then execute it.
+
+```
+@echo Changing id_rsa Permission
+icacls .\id_rsa /inheritance:r
+icacls .\id_rsa /grant:r "%username%":"(R)"
+@pause
+```
 
 Awesome! Now let's add this line to our `C:\Windows\System32\drivers\etc\hosts` file
 
