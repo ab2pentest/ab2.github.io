@@ -207,10 +207,6 @@ The 2nd IP `10.0.2.15` is the default IP address for the NAT network adapter.
 
 Finally, I would like to thank `leeloo1313` for the encouragement and help in writing this setup guide.
 
-# Coming
-* An auto setup for the whole process.
-* Setting an android emulator on windows and bypassing SSL pinning, and more ...
-
 ---
 
 If you liked this content and want to encourage me for more, you can [buymeacoffee](https://www.buymeacoffee.com/ab2pentest).
