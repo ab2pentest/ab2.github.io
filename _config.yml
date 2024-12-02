@@ -36,10 +36,10 @@ timezone: # see https://en.wikipedia.org/wiki/List_of_tz_database_time_zones for
 author:
   type      : # "person" (default), "organization"
   name      : AB2
-  url       : https://ab2pentest.github.io/
+  url       : https://ab2pentest.vip/
   avatar    : https://avatars.githubusercontent.com/u/84577967?v=4
-  bio       : I’m interested in Penetration Testing, Bug Hunting, Malware Analysis, Forensics, Reverse Engineering and in CTF's.
-  email     : "ab2pentest@gmail.com"
+  bio       : Cybersecurity enthusiast specializing in Penetration Testing, Bug Hunting, Malware Analysis, Digital Forensics, and Reverse Engineering. Passionate about unraveling challenges in CTFs and continuously exploring new ways to enhance security resilience.
+  email     : "ab2@ab2pentest.vip"
   facebook  : # "user_name" the last part of your profile url, e.g. https://www.facebook.com/user_name
   twitter   : "ab2pentest"
   weibo     : # "user_id"   the last part of your profile url, e.g. https://www.weibo.com/user_id/profile?...
@@ -52,12 +52,10 @@ author:
   github    : "ab2pentest"
   npm       : # "user_name" the last part of your profile url, e.g. https://www.npmjs.com/~user_name
 
-
 ## => GitHub Repository (if the site is hosted by GitHub)
 ##############################
 repository: ab2pentest/ab2pentest.github.io
 repository_tree: master
-
 
 ## => Paths
 ##############################
@@ -67,7 +65,6 @@ paths:
   tags : # "/tags.html" (default)
   rss     : # "/feed.xml" (default)
   buymeacoffee     : # "https://www.buymeacoffee.com/ab2pentest" (default)
-
 
 ## => Post
 ##############################
