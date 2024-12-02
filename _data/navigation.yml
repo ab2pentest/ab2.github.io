@@ -39,7 +39,7 @@ header:
       en-CA   : *EN
       en-AU   : *EN
       # @end locale config
-    url: /rss.xml
+    url: /feed.xml
     icon: /assets/icons8-rss-48.png
 
   - titles:
