@@ -52,3 +52,14 @@ header:
       # @end locale config
     url: https://github.com/ab2pentest
     icon: https://github.githubassets.com/favicons/favicon.png
+
+  - titles:
+      # @start locale config
+      en      : &EN       Email
+      en-GB   : *EN
+      en-US   : *EN
+      en-CA   : *EN
+      en-AU   : *EN
+      # @end locale config
+    email: ab2@ab2pentest.vip
+    icon: /assets/email.png
