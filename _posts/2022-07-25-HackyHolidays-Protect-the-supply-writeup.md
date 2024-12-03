@@ -48,9 +48,11 @@ docker history fc6642d32b03
 
 The output of the command may not be complete, but we can add additional arguments and use the `jq` tool to beautify the output.
 
+{% raw %}
 ```bash
 docker history --format "{{json .}}" fc6642d32b03 --no-trunc |jq .
 ```
+{% endraw %}
 
 ![image](https://user-images.githubusercontent.com/84577967/178867846-7fa527fb-30c7-40c9-b470-66625e2d9e6a.png)
 
