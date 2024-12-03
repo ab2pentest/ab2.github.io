@@ -1,7 +1,11 @@
 ---
-title: How AI-Powered OSINT Helped Me Solve the Mystery of My GitHub Alias and Reclaim My Digital Identity
+title: AI - OSINT - Solving GitHub Alias
 tags: ai osint digital-identity github ethical-hacking cybersecurity recon social-engineering reconnaissance cyber-investigation opensource-intelligence
 ---
+
+# Title
+
+How AI-Powered OSINT Helped Me Solve the Mystery of My GitHub Alias and Reclaim My Digital Identity !
 
 # Description
 
