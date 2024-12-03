@@ -27,7 +27,7 @@ This suggests that our PHP code must be placed within `{{PHP EVAL CODE}}` in ord
 
 # Solution
 
-Let's try to send a simple payload `200,{{phpinfo()}}`
+Let's try to send a simple payload {% raw %}`200,{{phpinfo()}}`{% endraw %}
 
 ![phpinfo](https://user-images.githubusercontent.com/84577967/174358466-4c209820-f9e6-48ca-892a-030d8d922abf.png)
 
