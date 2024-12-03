@@ -9,7 +9,7 @@ How AI-Powered OSINT Helped Me Solve the Mystery of My GitHub Alias and Reclaim 
 
 # Description
 
-A few years ago, while setting up my GitHub account and trying to establish my digital presence, I discovered that the username ab2 was already taken. The account belonged to someone else, which was surprising since I had envisioned that alias as part of my online identity.
+A few years ago, while setting up my GitHub account and trying to establish my digital presence, I discovered that the username `AB2` was already taken. The account belonged to someone else, which was surprising since I had envisioned that alias as part of my online identity.
 
 ![Pasted image 20230222010512](https://github.com/user-attachments/assets/990ac5dc-1ac2-43d2-9ecc-37f6bddd688f)
 
@@ -33,7 +33,7 @@ I cloned the repository:
 git clone https://github.com/ab2/repository-name.git
 ```
 
-Once downloaded, I used the command `git log --reverse` to sift through the repository's commit history, looking for the first or initial commit.
+Once cloned, I used the command `git log --reverse` to sift through the repository's commit history, looking for the first or initial commit.
 
 ```bash
 git log --reverse
@@ -59,3 +59,5 @@ I sent out the email and waited. To my surprise and relief, I received a reply t
 # Conclusion
 
 This experience highlighted not only the power of OSINT and traditional research methods but also the new ways AI can assist in digital investigations. From finding hidden email addresses to drafting outreach emails, technology played a pivotal role in reconnecting with my digital identity. The outcome was a success, proving that sometimes, with a little persistence and the right tools, even the most challenging puzzles can be solved.
+
+![image](https://github.com/user-attachments/assets/0203be86-1040-4fe1-b368-42b6cb2b49ba)
