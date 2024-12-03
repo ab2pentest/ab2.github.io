@@ -1,6 +1,6 @@
 ---
-title: Malicious - FakeBard - ChromeExtension
-tags: malware malicious chrome extension bard fake
+title:  Malware Analysis - FakeBard - Malicious ChromeExtension
+tags: malware malware-analysis cybersecurity phishing malicious chrome extension bard fake 
 ---
 
 # Description
