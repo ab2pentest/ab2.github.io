@@ -1,6 +1,6 @@
 ---
 title: No WSL After 2 Day
-tags: windows wsl linux terminal system
+tags: windows wsl linux terminal system kali-linux cybersecurity virtualbox system-administration vm network-configuration penetration-testing
 ---
 
 # Description
@@ -206,7 +206,3 @@ The 2nd IP `10.0.2.15` is the default IP address for the NAT network adapter.
 # Thanks
 
 Finally, I would like to thank `leeloo1313` for the encouragement and help in writing this setup guide.
-
----
-
-If you liked this content and want to encourage me for more, you can [buymeacoffee](https://www.buymeacoffee.com/ab2pentest).
