@@ -65,7 +65,13 @@ We need this to check only if our VM is working fine and also to check the netwo
 
 ![2021-12-14_18-44-16](https://user-images.githubusercontent.com/84577967/174202154-04de206f-d53a-4c50-b269-305ca7962783.png)
 
-Now generate a new ssh key for any user, I always like to be root.
+## Creating a new ssh key for root and copy it to windows
+
+** Note: You can skip this step and directly add your public key to the `/root/.ssh/authorized_keys` file. Make sure to set the correct file permissions by running the following command: `chmod 600 /root/.ssh/authorized_keys`.
+
+This method is intended for beginners who are unfamiliar with generating SSH keys and for intermediate users who are unsure how to modify the permissions for the `id_rsa` file in Windows. **
+
+Let's generate a new ssh key for any user, I always like to be root.
 
 So by going to terminal and type `sudo su -` then `ssh-keygen` and pressing `Enter` few times to generate the key, this will automatically save both the private and public keys in `/root/.ssh/id_rsa`
 
