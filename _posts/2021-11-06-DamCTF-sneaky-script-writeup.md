@@ -1,6 +1,6 @@
 ---
 title: DamCTF - sneaky-script - Writeup
-tags: damctf malware
+tags: damctf malware-analysis pcap xor-decryption cybersecurity ctf uncompyle6 information-gathering network-traffic-analysis wireshark
 ---
 
 # Description
