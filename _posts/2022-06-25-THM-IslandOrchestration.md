@@ -1,6 +1,6 @@
 ---
 title: TryHackMe - Island Orchestration - Walkthrough
-tags: thm web kubernetes kubectl lfi
+tags: tryhackme kubernetes web-security lfi container-security kubectl ctf hacking penetration-testing linux docker reverse-shell cybersecurity ethical-hacking
 ---
 
 # Description
