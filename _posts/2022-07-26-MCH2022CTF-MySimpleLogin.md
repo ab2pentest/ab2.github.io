@@ -1,6 +1,6 @@
 ---
 title: MCH2022CTF - MySimpleLogin - Writeup
-tags: mch2022ctf android apk reverse
+tags: mch2022ctf android apk-reversing apk reverse-engineering cybersecurity ctf mobile-security java decompilation obfuscation
 ---
 
 # Description
