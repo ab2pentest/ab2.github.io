@@ -1,6 +1,6 @@
 ---
 title: PHP - Bypass Disable Functions Using FFI
-tags: php disable_functions bypass ffi
+tags: php security bypass disable-functions FFI web-security penetration-testing command-execution docker cybersecurity ethical-hacking exploit-development
 ---
 
 # Description
