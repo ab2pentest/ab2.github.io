@@ -1,6 +1,6 @@
 ---
 title: HackyHolidays - Protect the supply - Writeup
-tags: hackyholidays malware linux forensics reversing
+tags: hackyholidays docker digital-forensics malware-analysis reverse-engineering ctf binary-analysis
 ---
 
 # Description
