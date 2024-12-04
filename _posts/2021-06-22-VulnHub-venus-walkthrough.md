@@ -1,6 +1,6 @@
 ---
 title: Vulnhub - Venus - Walkthrough
-tags: web vulnhub privesc
+tags: web vulnhub privesc penetration-testing binary-exploitation ctf privilege-escalation cybersecurity steganography cookie-manipulation vulnerability-analysis 
 ---
 
 # Description
