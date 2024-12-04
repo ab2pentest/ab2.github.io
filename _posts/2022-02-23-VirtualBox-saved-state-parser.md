@@ -1,6 +1,6 @@
 ---
 title: VirtualBox Saved State Parser
-tags: virtualbox forensics
+tags: virtualbox forensics cybersecurity data-analysis CTF saved-state tool open-source liblzf disk-analysis digital-forensics reverse-engineering sav ova
 ---
 
 # Description
