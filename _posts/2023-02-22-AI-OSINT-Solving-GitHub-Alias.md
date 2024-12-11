@@ -30,7 +30,7 @@ Since this repository was not a fork but rather an original project, I decided t
 I cloned the repository:
 
 ```bash
-git clone https://github.com/ab2/repository-name.git
+git clone https://github.com/ab2/tech-radar.git
 ```
 
 Once cloned, I used the command `git log --reverse` to sift through the repository's commit history, looking for the first or initial commit.
@@ -52,7 +52,7 @@ Now that I had the contact details, I needed to draft an email that would be bot
 
 # The Response
 
-I sent out the email and waited. To my surprise and relief, I received a reply the following day. The user, who turned out to be very open and understanding, welcomed the idea and even offered to help guide me through the steps needed to transfer the account.
+I sent out the email and waited. To my surprise and relief, I received a reply the following day. The user, who turned out to be very open and understanding, welcomed the idea and even asked for my help in guiding them through the steps needed to transfer the account.
 
 ![Pasted image 20230222010832](https://github.com/user-attachments/assets/3c4e82fd-200f-45fa-9df4-254b1674a52f)
 
