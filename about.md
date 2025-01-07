@@ -8,7 +8,7 @@ titles:
 key: page-about
 ---
 
-- 👋 Hello, I’m [AB2](https://twitter.com/ab2pentest).
+- 👋 Hello, I’m Abdou Yelles aka [AB2](https://twitter.com/ab2pentest).
 - 💼 Currently serving as the Penetration Testing Team Lead @ TS.
 - 👀 I am a cybersecurity professional with a focus on penetration testing, bug hunting, malware analysis, forensics, and reverse engineering.
 - 🎯 I have a strong interest in Capture the Flag (CTF) events and can be found competing on [CTFTime](https://ctftime.org/user/110409), If you are also interested in CTFs, please feel free to join my Discord server [CTFTime Reminder](https://discord.gg/MW9cWMuw63).
